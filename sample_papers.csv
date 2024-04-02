@@ -1,0 +1,4 @@
+authors,name,year,category,doi,citations
+Author1,Paper1,2019,CategoryA:SubcategoryA,doi1,10
+Author2,Paper2,2019,CategoryA:SubcategoryB,doi2,20
+Author3,Paper3,2019,CategoryB:SubcategoryA,doi3,30
