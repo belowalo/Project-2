@@ -12,8 +12,6 @@ from tm_trees import TMTree, FileSystemTree
 EXAMPLE_PATH = os.path.join(os.getcwd(), 'example-directory', 'workshop')
 
 
-
-
 def test_empty_directory_tree_creation() -> None:
     """Test the creation of a FileSystemTree object for an empty directory."""
     # Create a temporary empty directory
@@ -148,17 +146,20 @@ def test_change_size_leaf():
     leaf.change_size(0.5)
     assert leaf.data_size == 150
 
+
 def test_change_size_non_leaf():
     """Test changing the size of a non-leaf node."""
     root = TMTree('root', [])
     root.change_size(0.5)
     assert root.data_size == 0
 
+
 # Define test cases for the update_data_sizes method
 def test_update_data_sizes_leaf():
     """Test updating data sizes for a leaf node."""
     leaf = TMTree('leaf', [], data_size=100)
     assert leaf.update_data_sizes() == 100
+
 
 def test_update_data_sizes_non_leaf():
     """Test updating data sizes for a non-leaf node."""
@@ -168,6 +169,7 @@ def test_update_data_sizes_non_leaf():
     root._subtrees.extend([leaf1, leaf2])
     assert root.update_data_sizes() == 125
 
+
 # Define test cases for the move method
 def test_move_leaf_to_non_leaf():
     """Test moving a leaf node to a non-leaf node."""
@@ -176,12 +178,14 @@ def test_move_leaf_to_non_leaf():
     root.move(leaf)
     assert leaf._parent_tree is None
 
+
 def test_move_non_leaf_to_leaf():
     """Test moving a non-leaf node to a leaf node."""
     root = TMTree('root', [])
     leaf = TMTree('leaf', [], data_size=100)
     root.move(leaf)
     assert root._parent_tree is None
+
 
 def test_expand():
     # Create a sample tree
@@ -217,6 +221,7 @@ def test_collapse() -> None:
     # Check if the subtrees are collapsed
     assert all(not subtree._expanded for subtree in tree._subtrees)
 
+
 def test_expand_all():
     # Create a sample tree
     tree = TMTree('root', [])
@@ -230,6 +235,7 @@ def test_expand_all():
 
     # Check if all trees are expanded
     assert all(subtree._expanded for subtree in tree._subtrees)
+
 
 def test_collapse_all():
     # Create a sample tree
@@ -247,6 +253,7 @@ def test_collapse_all():
 
     # Check if all trees are collapsed
     assert not any(subtree._expanded for subtree in tree._subtrees)
+
 
 import pytest
 from papers import PaperTree, _load_papers_to_dict, _build_tree_from_dict
