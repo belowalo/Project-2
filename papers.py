@@ -180,6 +180,7 @@ def _load_papers_to_dict(by_year: bool = True) -> Dict:
 def _build_tree_from_dict(nested_dict: Dict) -> List[PaperTree]:
     """Return a list of trees from the nested dictionary <nested_dict>.
     """
+
     def build_tree_helper(node):
         """Recursive helper function to build the tree."""
         trees = []
@@ -198,6 +199,7 @@ def _build_tree_from_dict(nested_dict: Dict) -> List[PaperTree]:
 
 if __name__ == '__main__':
     import python_ta
+
     python_ta.check_all(config={
         'allowed-import-modules': ['python_ta', 'typing', 'csv', 'tm_trees'],
         'allowed-io': ['_load_papers_to_dict'],
